@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f6bac7fc9bd2ff4dad92c4e0fc59caa, type: 3}
+  m_Name: Merchant-data
+  m_EditorClassIdentifier: Assembly-CSharp::NPC_Data
+  Name: Zunaid
+  Description: This merchant takes a lot of Gulf trips.
+  SpawnPoint: {x: 8, y: -6}
+  TriggerRadius: 4
+  StartingDialogue: {fileID: 11400000, guid: 9f3dbaf913b73b54c93fe9a58b7b5a43, type: 2}
+  characterColor: {r: 0.21277775, g: 0.21119614, b: 0.3962264, a: 1}
