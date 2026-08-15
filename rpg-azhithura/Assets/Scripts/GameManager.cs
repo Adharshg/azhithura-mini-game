@@ -39,14 +39,14 @@ public class GameManager : MonoBehaviour
         dayCount++;
         uim.dayText.text = dayCount.ToString();
 
-        uim.NextDayPanel.SetActive(true);
+        uim.ShowNextDayPanel();
     }
 
     public void startDay() // call only at GAME-START & after complete DAY-TIME
     {
         player.UnfreezePlayer();
 
-        uim.NextDayPanel.SetActive(false);
+        uim.HideNextDayPanel();
         dnSystem.isDaynightWorking = true;
     }
 

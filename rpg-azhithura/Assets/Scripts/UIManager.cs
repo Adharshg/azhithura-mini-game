@@ -56,4 +56,9 @@ public class UIManager : MonoBehaviour
     {
         NextDayPanel.SetActive(true);
     }
+
+    public void HideNextDayPanel()
+    {
+        NextDayPanel.SetActive(false);
+    }
 }
