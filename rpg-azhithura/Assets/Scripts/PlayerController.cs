@@ -4,7 +4,8 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] float moveSpeed;
-    public PlayerState currentState;
+    [SerializeField] PlayerState CurrentState;
+    PlayerState previousState;
 
     Animator anim;
     Rigidbody2D rb;
@@ -25,9 +26,7 @@ public class PlayerController : MonoBehaviour
         if (CanMove) moveVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else moveVector = Vector2.zero;
 
-        // STATE-CHANGE
-        if (rb.linearVelocity.magnitude > 0) currentState = PlayerState.Walking;
-        else currentState = PlayerState.Idle;
+        ManagePlayerState();
     }
 
     void FixedUpdate()
@@ -37,6 +36,29 @@ public class PlayerController : MonoBehaviour
         rb.linearVelocity = new Vector2(moveVector.x * moveSpeed, moveVector.y * moveSpeed);
     }
 
+    void ManagePlayerState()
+    {
+        if (CanMove)
+        {
+            if (rb.linearVelocity.magnitude > 0) CurrentState = PlayerState.Walking;
+            else CurrentState = PlayerState.Idle;
+
+        }
+
+    }
+
+    public void FreezePlayer()
+    {
+        previousState = CurrentState;
+        CurrentState = PlayerState.Stopped;
+        CanMove = false;
+    }
+
+    public void UnfreezePlayer()
+    {
+        CurrentState = previousState;
+        CanMove = true;
+    }
 }
 
 public enum PlayerState // for later
@@ -45,5 +67,6 @@ public enum PlayerState // for later
     Talking,
     Combat,
     Paused,
-    Idle
+    Idle,
+    Stopped
 }
