@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -21,6 +20,7 @@ public class UIManager : MonoBehaviour
     public GameObject NighttimeFadePanel;
     public Slider DayNightIndicator;
     public Button NextDayButton;
+
 
     void Awake()
     {
@@ -61,4 +61,5 @@ public class UIManager : MonoBehaviour
     {
         NextDayPanel.SetActive(false);
     }
+
 }

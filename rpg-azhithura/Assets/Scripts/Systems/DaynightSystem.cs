@@ -24,15 +24,17 @@ public class DaynightSystem : MonoBehaviour
     GameManager gm;
     Slider daytimeIndicator;
 
-    void OnEnable()
+    void Start()
     {
         gm = GetComponent<GameManager>();
+
+        isDaynightWorking = false;
+        timer = DaytimeDuration + ExtraDuration;
+
         daytimeIndicator = UIManager.Instance.DayNightIndicator;
         daytimeIndicator.maxValue = DaytimeDuration;
         daytimeIndicator.minValue = 0;
 
-        isDaynightWorking = false;
-        timer = DaytimeDuration + ExtraDuration;
     }
 
     void FixedUpdate()
