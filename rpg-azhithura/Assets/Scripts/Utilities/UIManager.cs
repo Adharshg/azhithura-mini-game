@@ -27,15 +27,7 @@ public class UIManager : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
-    {
-        ShowMainMenu();
-    }
-
-    void Update()
-    {
-        
-    }
+    // ---------------------------------------------------------------
 
     public void ShowMainMenu()
     {

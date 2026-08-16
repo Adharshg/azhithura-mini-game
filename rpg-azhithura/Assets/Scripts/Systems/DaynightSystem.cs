@@ -37,9 +37,10 @@ public class DaynightSystem : MonoBehaviour
 
     }
 
+    // ---------------------------------------------------------------
+
     void FixedUpdate()
     {
-
 
         if (!isDaynightWorking)
             return;
@@ -72,8 +73,6 @@ public class DaynightSystem : MonoBehaviour
         #endregion
 
     }
-
-
 
     void daytimeSettings(bool isDaytime)
     {

@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public PlayerController player;
+    public NPCSpawner npcSpawner;
     float dayCount;
 
     UIManager uim;
@@ -20,17 +21,16 @@ public class GameManager : MonoBehaviour
         uim.NextDayButton.onClick.AddListener(startDay);
     }
 
+    // ---------------------------------------------------------------
+
     void StartGame()
     {
         uim.dayText.text = dayCount.ToString();
+        npcSpawner.SpawnNPCs();
         uim.HideMainMenu();
         startDay();
     }
 
-    void Update()
-    {
-        
-    }
 
     public void completeDay()
     {
