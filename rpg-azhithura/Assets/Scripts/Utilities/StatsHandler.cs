@@ -11,7 +11,7 @@ public class StatsHandler : MonoBehaviour
 
     GameManager gm;
 
-    void Awake()
+    void Start()
     {
 
         if (singleton != null)

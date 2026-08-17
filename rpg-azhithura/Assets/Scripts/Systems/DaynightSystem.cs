@@ -80,7 +80,6 @@ public class DaynightSystem : MonoBehaviour
 
         if (!isDaytime) // DURING NIGHT
         {
-            Debug.Log("is night now");
 
             if (showNight) // SHOW night-time
             {
@@ -93,8 +92,6 @@ public class DaynightSystem : MonoBehaviour
         }
         else // DURING DAY
         {
-            Debug.Log("is day now");
-
             timer -= Time.fixedDeltaTime;
         }
     }
