@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 912040135128771726}
   - component: {fileID: 5909636391975428745}
   - component: {fileID: 3076737688643372772}
-  - component: {fileID: -9127212138622148043}
-  - component: {fileID: -2175127472555127905}
+  - component: {fileID: -7748483866384018655}
+  - component: {fileID: 438504765794885403}
+  - component: {fileID: -220920720487506033}
   m_Layer: 0
-  m_Name: rough-char 19
+  m_Name: rough-char 1
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 724cd457846576745b01944ff7953aee, type: 3}
-  m_Color: {r: 0.3962264, g: 0.23362406, b: 0.23362406, a: 0.50980395}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,7 +141,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.88}
   m_EdgeRadius: 0
---- !u!61 &-9127212138622148043
+--- !u!61 &-7748483866384018655
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +187,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &-2175127472555127905
+--- !u!114 &438504765794885403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,5 +199,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac897a1a64dc3f34e832c49ffbbc4881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
-  CharacterName: Sharaf
-  HomeLocation: S
+  CharacterName: Akhilan
+  HomeLocation: A
+  DailyTasks: []
+  ApplicableTaskTypes: 0100000000000000
+--- !u!114 &-220920720487506033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338306029124825727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController

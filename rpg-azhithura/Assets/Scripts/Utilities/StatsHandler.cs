@@ -5,23 +5,24 @@ using System.Collections.Generic;
 
 public class StatsHandler : MonoBehaviour
 {
-    public static StatsHandler singleton;
+    public static StatsHandler Singleton;
 
     public List<GameObject> SpawnedNpcsList;
+    public List<Task> TasksList;
 
-    GameManager gm;
+    public GameManager gm;
 
     void Start()
     {
 
-        if (singleton != null)
+        if (Singleton != null)
             Destroy(this.gameObject);
         else
         {
-            singleton = this;
+            Singleton = this;
             DontDestroyOnLoad(gameObject);
 
-            if (gm == null) GameObject.FindGameObjectWithTag("GameManager");
+            if (gm == null) gm = UIManager.Instance.GetComponent<GameManager>();
 
             // Initial setup of the game.
             UIManager.Instance.ShowMainMenu();
@@ -32,7 +33,7 @@ public class StatsHandler : MonoBehaviour
 
     void Update()
     {
-        if (gm == null) GameObject.FindGameObjectWithTag("GameManager");
+        if (gm == null) gm = UIManager.Instance.GetComponent<GameManager>();
     }
 
     public void StoreNPCs()

@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 1281246570690743612}
   - component: {fileID: 8578931328442406222}
   - component: {fileID: 4474671406278418301}
-  - component: {fileID: 1116301547740207207}
-  - component: {fileID: 1795637571122189299}
+  - component: {fileID: -4184175610863614364}
+  - component: {fileID: -2511437956877718777}
+  - component: {fileID: -5934915156536247769}
   m_Layer: 0
-  m_Name: rough-char 3
+  m_Name: rough-char 14
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 58466f7822cb661459b2bb58a4a75aaa, type: 3}
-  m_Color: {r: 1, g: 0.979916, b: 0.2783019, a: 1}
+  m_Color: {r: 1, g: 0.611645, b: 0, a: 0.57254905}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,7 +141,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.88}
   m_EdgeRadius: 0
---- !u!61 &1116301547740207207
+--- !u!61 &-4184175610863614364
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +187,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1795637571122189299
+--- !u!114 &-2511437956877718777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,5 +199,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac897a1a64dc3f34e832c49ffbbc4881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
-  CharacterName: Revi
-  HomeLocation: C
+  CharacterName: Khalid
+  HomeLocation: N
+  DailyTasks: []
+  ApplicableTaskTypes: 000000000100000002000000
+--- !u!114 &-5934915156536247769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593494270985978353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3076737688643372772}
   - component: {fileID: -8894860586897881699}
   - component: {fileID: 1464474993125253890}
+  - component: {fileID: -41918343088733771}
   m_Layer: 0
   m_Name: rough-char 2
   m_TagString: NPC
@@ -200,3 +201,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
   CharacterName: Shijin
   HomeLocation: B
+  DailyTasks: []
+  ApplicableTaskTypes: 040000000300000002000000
+--- !u!114 &-41918343088733771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5338306029124825727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController

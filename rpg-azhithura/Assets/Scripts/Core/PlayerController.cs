@@ -4,18 +4,18 @@ public class PlayerController : MonoBehaviour
 {
 
     [SerializeField] float moveSpeed;
-    [SerializeField] PlayerState CurrentState;
+    PlayerState CurrentState;
     PlayerState previousState;
 
+    bool canMove;
     Animator anim;
     Rigidbody2D rb;
     Vector2 moveVector;
-    bool CanMove;
 
 
     void OnEnable()
     {
-        CanMove = true;
+        canMove = true;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
     }
@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // MOVEMENT
-        if (CanMove) moveVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (canMove) moveVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         else moveVector = Vector2.zero;
 
         ManagePlayerState();
@@ -38,27 +38,33 @@ public class PlayerController : MonoBehaviour
 
     void ManagePlayerState()
     {
-        if (CanMove)
+        if (canMove)
         {
-            if (rb.linearVelocity.magnitude > 0) CurrentState = PlayerState.Walking;
-            else CurrentState = PlayerState.Idle;
-
+            if (rb.linearVelocity.magnitude > 0) SwitchStateTo(PlayerState.Walking);
+            else SwitchStateTo(GetPreviousState());
         }
-
+        
+        if (CurrentState == PlayerState.Talking || CurrentState == PlayerState.Paused)
+        {
+            canMove = false;
+        }
+        else if (CurrentState == PlayerState.Idle || CurrentState == PlayerState.Idle)
+        {
+            canMove= true;
+        }
     }
 
-    public void FreezePlayer()
+    public void SwitchStateTo(PlayerState targetState)
     {
         previousState = CurrentState;
-        CurrentState = PlayerState.Stopped;
-        CanMove = false;
+        CurrentState = targetState;
+
     }
 
-    public void UnfreezePlayer()
+    public PlayerState GetPreviousState()
     {
-        CurrentState = previousState;
-        CanMove = true;
-    }
+        return previousState;
+    } 
 }
 
 public enum PlayerState // for later

@@ -1,14 +1,20 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerController player;
-    public NPCSpawner npcSpawner;
+    public PlayerController Player;
+    public NPCSpawner NpcSpawner;
+    public TasksAssignerSystem TasksAssigner;
     float dayCount;
 
     UIManager uim;
     DaynightSystem dnSystem;
+
+    [Space]
+    public List<TaskType> TaskTypesOrder;
 
     void Awake()
     {
@@ -26,7 +32,7 @@ public class GameManager : MonoBehaviour
     void StartGame()
     {
         uim.dayText.text = dayCount.ToString();
-        npcSpawner.SpawnNPCs();
+        NpcSpawner.SpawnNPCs();
         uim.HideMainMenu();
         startDay();
     }
@@ -34,7 +40,7 @@ public class GameManager : MonoBehaviour
 
     public void completeDay()
     {
-        player.FreezePlayer();
+        Player.SwitchStateTo(PlayerState.Stopped);
 
         dnSystem.isDaynightWorking = false;
         dayCount++;
@@ -45,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void startDay() // call only at GAME-START & after complete DAY-TIME
     {
-        player.UnfreezePlayer();
+        Player.SwitchStateTo(Player.GetPreviousState());
 
         uim.HideNextDayPanel();
         dnSystem.isDaynightWorking = true;

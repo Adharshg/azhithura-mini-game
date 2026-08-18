@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5338306029124825727
+--- !u!1 &2593494270985978353
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 912040135128771726}
-  - component: {fileID: 5909636391975428745}
-  - component: {fileID: 3076737688643372772}
-  - component: {fileID: 3517553882756428604}
-  - component: {fileID: 4877376893455712607}
+  - component: {fileID: 1281246570690743612}
+  - component: {fileID: 8578931328442406222}
+  - component: {fileID: 4474671406278418301}
+  - component: {fileID: 1116301547740207207}
+  - component: {fileID: 1795637571122189299}
+  - component: {fileID: -4931448185140064476}
   m_Layer: 0
-  m_Name: rough-char 16
+  m_Name: rough-char 3
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &912040135128771726
+--- !u!4 &1281246570690743612
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338306029124825727}
+  m_GameObject: {fileID: 2593494270985978353}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -35,14 +36,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &5909636391975428745
+--- !u!212 &8578931328442406222
 SpriteRenderer:
   serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338306029124825727}
+  m_GameObject: {fileID: 2593494270985978353}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,8 +85,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 724cd457846576745b01944ff7953aee, type: 3}
-  m_Color: {r: 1, g: 0.0141509175, b: 0.0141509175, a: 0.5019608}
+  m_Sprite: {fileID: 21300000, guid: 58466f7822cb661459b2bb58a4a75aaa, type: 3}
+  m_Color: {r: 1, g: 0.979916, b: 0.2783019, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -94,13 +95,13 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!61 &3076737688643372772
+--- !u!61 &4474671406278418301
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338306029124825727}
+  m_GameObject: {fileID: 2593494270985978353}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -140,13 +141,13 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.88}
   m_EdgeRadius: 0
---- !u!61 &3517553882756428604
+--- !u!61 &1116301547740207207
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338306029124825727}
+  m_GameObject: {fileID: 2593494270985978353}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -186,17 +187,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &4877376893455712607
+--- !u!114 &1795637571122189299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5338306029124825727}
+  m_GameObject: {fileID: 2593494270985978353}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ac897a1a64dc3f34e832c49ffbbc4881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
-  CharacterName: Nazeer
-  HomeLocation: P
+  CharacterName: Revi
+  HomeLocation: C
+  DailyTasks: []
+  ApplicableTaskTypes: 070000000100000004000000
+--- !u!114 &-4931448185140064476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593494270985978353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController

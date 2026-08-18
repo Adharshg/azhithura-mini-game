@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4474671406278418301}
   - component: {fileID: 2989804504925883328}
   - component: {fileID: 1617331309510677622}
+  - component: {fileID: 7540310019079479184}
   m_Layer: 0
   m_Name: rough-char 13
   m_TagString: NPC
@@ -200,3 +201,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
   CharacterName: Jinson
   HomeLocation: M
+  DailyTasks: []
+  ApplicableTaskTypes: 000000000400000002000000
+--- !u!114 &7540310019079479184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593494270985978353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController

@@ -5,6 +5,7 @@ using UnityEngine.Rendering;
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> npcsMasterList;
+    List<GameObject> npcsTempList;
 
     [SerializeField] int spawnVolume;
     [SerializeField] GameObject SpawnedNpcs;
@@ -18,36 +19,48 @@ public class NPCSpawner : MonoBehaviour
 
     public void SpawnNPCs()
     {
-        if (StatsHandler.singleton.SpawnedNpcsList.Count == 0)
-            StatsHandler.singleton.SpawnedNpcsList = GetRandomSubset<GameObject>(npcsMasterList, spawnVolume);
+        if (StatsHandler.Singleton.SpawnedNpcsList.Count == 0)
+            npcsTempList = GetRandomSubset<GameObject>(npcsMasterList, spawnVolume);
 
-        foreach (GameObject npc in StatsHandler.singleton.SpawnedNpcsList)
+        Debug.Log("Temp list count: " + npcsTempList.Count);
+        // Spawning characters into scene
+        foreach (GameObject npc in npcsTempList)
         {
             GameObject NewNpc = Instantiate(npc, Locations.transform.Find(npc.GetComponent<NPCdata>().HomeLocation).transform.position, Quaternion.identity, SpawnedNpcs.transform);
-            if (npc.GetComponent<NPCdata>().CharacterName != "") NewNpc.name = npc.GetComponent<NPCdata>().CharacterName;
+            if (npc.GetComponent<NPCdata>().CharacterName != "")
+            {
+                npc.name = npc.GetComponent<NPCdata>().CharacterName;
+                NewNpc.name = npc.GetComponent<NPCdata>().CharacterName;
+            }
+
+            StatsHandler.Singleton.SpawnedNpcsList.Add(NewNpc);
         }
+        Debug.Log(StatsHandler.Singleton.TasksList.Count);
+
+        // Setting up or updating tasks for all characters
+        if (StatsHandler.Singleton.TasksList.Count == 0)
+            StatsHandler.Singleton.gm.TasksAssigner.CreateTasks();
+
+        //NewNpc.GetComponent<NPCdata>().;
+        
+
     }
 
     public List<T> GetRandomSubset<T>(List<T> originalList, int subsetSize)
     {
-        // Clamp the subset size so it doesn't exceed the list bounds
         int count = Mathf.Min(subsetSize, originalList.Count);
 
-        // Create a copy so we don't modify the original list
         List<T> copyList = new List<T>(originalList);
         List<T> subset = new List<T>();
 
         for (int i = 0; i < count; i++)
         {
-            // Pick a random remaining index
             int randomIndex = Random.Range(i, copyList.Count);
 
-            // Swap the element into the current position
             T temp = copyList[i];
             copyList[i] = copyList[randomIndex];
             copyList[randomIndex] = temp;
 
-            // Add the swapped element to our subset
             subset.Add(copyList[i]);
         }
 

@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 1281246570690743612}
   - component: {fileID: 8578931328442406222}
   - component: {fileID: 4474671406278418301}
-  - component: {fileID: -4295027040979709093}
-  - component: {fileID: 7931228921736386500}
+  - component: {fileID: 2469021384055630860}
+  - component: {fileID: 7441923129383670924}
+  - component: {fileID: 565566505643543395}
   m_Layer: 0
-  m_Name: rough-char 15
+  m_Name: rough-char 7
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,7 +86,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 58466f7822cb661459b2bb58a4a75aaa, type: 3}
-  m_Color: {r: 0, g: 0.24238999, b: 0.5377358, a: 0.5686275}
+  m_Color: {r: 0.28862986, g: 0.26232645, b: 0.4245283, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -140,7 +141,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1.88}
   m_EdgeRadius: 0
---- !u!61 &-4295027040979709093
+--- !u!61 &2469021384055630860
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +187,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7931228921736386500
+--- !u!114 &7441923129383670924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,5 +199,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac897a1a64dc3f34e832c49ffbbc4881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCdata
-  CharacterName: Chandu
-  HomeLocation: O
+  CharacterName: Babumol
+  HomeLocation: G
+  DailyTasks: []
+  ApplicableTaskTypes: 02000000
+--- !u!114 &565566505643543395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2593494270985978353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079ce3c0db1c00b4ea7067df52db2248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NPCController
