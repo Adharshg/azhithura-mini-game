@@ -22,7 +22,6 @@ public class NPCSpawner : MonoBehaviour
         if (StatsHandler.Singleton.SpawnedNpcsList.Count == 0)
             npcsTempList = GetRandomSubset<GameObject>(npcsMasterList, spawnVolume);
 
-        Debug.Log("Temp list count: " + npcsTempList.Count);
         // Spawning characters into scene
         foreach (GameObject npc in npcsTempList)
         {
@@ -35,7 +34,6 @@ public class NPCSpawner : MonoBehaviour
 
             StatsHandler.Singleton.SpawnedNpcsList.Add(NewNpc);
         }
-        Debug.Log(StatsHandler.Singleton.TasksList.Count);
 
         // Setting up or updating tasks for all characters
         if (StatsHandler.Singleton.TasksList.Count == 0)

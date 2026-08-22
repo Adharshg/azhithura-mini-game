@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
 
         uim.StartGameButton.onClick.AddListener(StartGame);
         uim.NextDayButton.onClick.AddListener(startDay);
+
+        uim.ToDoListButton.onClick.AddListener(uim.ShowToDoList);
+        uim.ToDoCloseButton.onClick.AddListener(uim.HideToDoList);
     }
 
     // ---------------------------------------------------------------
@@ -33,7 +36,9 @@ public class GameManager : MonoBehaviour
     {
         uim.dayText.text = dayCount.ToString();
         NpcSpawner.SpawnNPCs();
-        uim.HideMainMenu();
+
+        Debug.Log("About to start game");
+        uim.ShowGame();
         startDay();
     }
 

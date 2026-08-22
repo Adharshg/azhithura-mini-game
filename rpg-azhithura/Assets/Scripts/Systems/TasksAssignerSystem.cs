@@ -29,14 +29,15 @@ public class TasksAssignerSystem : MonoBehaviour
 
             Debug.Log("adding task: " + StatsHandler.Singleton.TasksList[StatsHandler.Singleton.TasksList.Count - 1].Type + " to " + npc.name);
         }
-        // Make UI updates here
+
+        UIManager.Instance.SetUpToDoList();
     }
 
     public void TaskDone(NPCdata NPC)
     {
         if (StatsHandler.Singleton.TasksList.Exists(npc => npc.npcdata.CharacterName == NPC.CharacterName))
         {
-            StatsHandler.Singleton.TasksList.Find(npc => npc.npcdata.CharacterName == NPC.CharacterName).TaskDone = true;
+            StatsHandler.Singleton.TasksList.Find(npc => npc.npcdata.CharacterName == NPC.CharacterName).OnTaskDone();
         }
         else
         {

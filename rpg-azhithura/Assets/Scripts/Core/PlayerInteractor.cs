@@ -10,13 +10,14 @@ public class PlayerInteractor : MonoBehaviour
         // Interaction with NPC
         if (collision.CompareTag("NPC"))
         {
+            collision.GetComponent<NPCController>().checkTask();
             GetComponent<PlayerController>().SwitchStateTo(PlayerState.Stopped);
-            StatsHandler.Singleton.gm.TasksAssigner.TaskDone(collision.GetComponent<NPCdata>());
+
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        UIManager.Instance.HideInteractionMwnu();
+        UIManager.Instance.HideInteractionMenu();
     }
 }

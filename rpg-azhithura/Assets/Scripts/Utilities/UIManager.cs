@@ -21,14 +21,16 @@ public class UIManager : MonoBehaviour
 
     [Header("In-GameUI")]
     public GameObject InteractionMenuPanel;
-    public GameObject ToDoListPanel;
     public Button TaskButton;
+
+    [Header("To Do List Assets")]
+    public GameObject ToDoListPanel;
     public Button ToDoListButton;
+    public GameObject TaskRow;
+    public Button ToDoCloseButton;
 
     [Header("Inventory Assets")]
     public GameObject InventoryPanel;
-    public GameObject TaskRow;
-    public Button CloseButton;
 
     [Header("Day-Night System Assets")]
     public GameObject NighttimeFadePanel;
@@ -46,6 +48,9 @@ public class UIManager : MonoBehaviour
     public void ShowMainMenu()
     {
         GetComponent<GameManager>().Player.SwitchStateTo(PlayerState.Stopped);
+
+        HideToDoList();
+
         NighttimeFadePanel.SetActive(false);
         NextDayPanel.SetActive(false);
 
@@ -56,6 +61,8 @@ public class UIManager : MonoBehaviour
     {
         NighttimeFadePanel.SetActive(true);
 
+        HideToDoList();
+
         NextDayPanel.SetActive(false);
         MainMenuPanel.SetActive(false);
     }
@@ -64,7 +71,9 @@ public class UIManager : MonoBehaviour
     {
         MainMenuPanel.SetActive(false);
         NextDayPanel.SetActive(false);
-        InteractionMenuPanel.SetActive(false);
+
+        HideInteractionMenu();
+        HideToDoList();
 
         NighttimeFadePanel.SetActive(true);
     }
@@ -72,12 +81,14 @@ public class UIManager : MonoBehaviour
     public void ShowNextDayPanel()
     {
         NextDayPanel.SetActive(true);
+
     }
 
     public void HideNextDayPanel()
     {
         NextDayPanel.SetActive(false);
     }
+
 
     public void OpenInteractionMenu(TaskType[] types)
     {
@@ -101,15 +112,73 @@ public class UIManager : MonoBehaviour
         InteractionMenuPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(160, height);
     }
 
-    public void HideInteractionMwnu()
+    public void HideInteractionMenu()
     {
-        //InteractionMenuPanel.SetActive(false);
+        InteractionMenuPanel.SetActive(false);
         foreach(Transform child in InteractionMenuPanel.transform.GetChild(0).transform)
         {
-            Destroy(child);
+            Destroy(child.gameObject);
         }
-        InteractionMenuPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(160, 0);
+        InteractionMenuPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(160, 120);
     }
+
+
+    #region To-do list
+
+    public void SetUpToDoList()
+    {
+        Debug.Log("Set up list");
+        if (ToDoListPanel.transform.GetChild(0).childCount == 0)
+        {
+            if (StatsHandler.Singleton.TasksList.Count > 0)
+            {
+                foreach (Task t in StatsHandler.Singleton.TasksList)
+                {
+                    t.CreateTaskOnList();
+                }
+            }
+        }
+    }
+
+
+    public void ClearToDoList()
+    {
+        Debug.Log("Clear list");
+
+        foreach (Transform T in ToDoListPanel.transform.GetChild(0).transform)
+        {
+            Destroy(T.gameObject);
+        }
+    }
+
+    public void ShowToDoList()
+    {
+        ToDoListPanel.SetActive(true);
+        ToDoListButton.gameObject.SetActive(false);
+    }
+
+    public void HideToDoList()
+    {
+        ToDoListButton.gameObject.SetActive(true);
+        ToDoListPanel.SetActive(false);
+    }
+
+    public Toggle AddTaskToList(string ToDoName)
+    {
+        Debug.Log("Add item to list");
+        GameObject ToDoItem = Instantiate(TaskRow, ToDoListPanel.transform.GetChild(0).transform);
+        ToDoItem.transform.GetChild(0).GetChild(1).GetComponent<TMP_Text>().text = ToDoName;
+        return ToDoItem.transform.GetChild(0).GetComponent<Toggle>();
+    }
+
+    public void CrossTaskOnList(int index)
+    {
+
+    }
+
+    #endregion
+
+
 
     public void SceneLoader(TaskType type)
     {
